@@ -4,23 +4,25 @@ from termcolor import colored, cprint
 '''
 Pizza:
 
-Pizza was inveted by a [adjective] [nationality] chef named [person]. To make pizza, you need to take a lump
-of [noun], and make a thin, round [adjective] [noun]. Then you cover it with [adjective] sauce, [adjective] cheese,
+Pizza was invented by a [adjective] [nationality] chef named [person]. To make pizza, you need to take a lump
+of [noun], and make a thin, round [adjective] [noun]. Then you [adverb] [verb] it with [adjective] sauce, [adjective] cheese,
 and fresh chopped [plural noun]. Next you have to bake it in a very hot [noun]. When it is done, cut it
 into [number] [shapes]. Some kids like [food] pizza the best, but my favorite is the [food] pizza. If I could, I would
 eat pizza [number] times a day!
 '''
 
-inputArray = ['adjective', 'nationality', 'person', 'noun', 'adjective', 'noun', 'adjective', 'adjective', 'plural noun'
+partOfSpeechArray = ['adjective', 'nationality', 'person', 'noun', 'adjective', 'noun', 'adverb', 'verb', 'adjective', 'adjective', 'plural noun',
 'noun', 'number', 'shape', 'food', 'food', 'number']
+
+inputArray = []
 
 # DIFFERENT PARTS OF SPEECH + COLOR ASSIGN
 def partsOfSpeech(input):
-    for items in inputArray:
+    for items in partOfSpeechArray:
         if items == "adjective":
             colorText = colored(input, 'red')
             return colorText
-        elif items == "nationality":
+        elif items == "nationality" | "adverb":
             colorText = colored(input, 'green')
             return colorText
         elif items == "person":
@@ -28,6 +30,9 @@ def partsOfSpeech(input):
             return colorText
         elif items == "noun" | "plural noun":
             colorText = colored(input, 'blue')
+            return colorText
+        elif items == "verb":
+            colorText = colored(input, 'grey')
             return colorText
         elif items == "number":
             colorText = colored(input, 'magenta')
@@ -50,15 +55,23 @@ def textVerification(input):
 
 # TEST
 def test():
-    running = 1
-    while running < 16:
-        textInput = input("Enter a word: ")
+    running = 0
+    while running < 17:
+        textInput = input("Enter a " + partOfSpeechArray[running] + ": ")
         check = textVerification(textInput)
         if check == True:
-            print(partsOfSpeech(textInput))
+            inputArray.append(partsOfSpeech(textInput))
             running += 1
         else:
-            print("That input was invalid.")
+            print("That input was invalid.\n")
+    
+    madLib = f"""\nPizza was invented by a {inputArray[0]} {inputArray[1]} chef named {inputArray[2]}. To make pizza, you need to take a lump
+of {inputArray[3]}, and make a thin, round {inputArray[4]} {inputArray[5]}. Then you {inputArray[6]} {inputArray[7]} it with {inputArray[8]} sauce, {inputArray[9]} cheese,
+and fresh chopped {inputArray[10]}. Next you have to bake it in a very hot {inputArray[11]}. When it is done, cut it
+into {inputArray[12]} {inputArray[13]}. Some kids like {inputArray[14]} pizza the best, but my favorite is the {inputArray[15]} pizza. If I could, I would
+eat pizza {inputArray[16]} times a day!"""
+
+    print(madLib)
 
 test()
 
