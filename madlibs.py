@@ -12,7 +12,7 @@ eat pizza [number] times a day!
 '''
 
 inputArray = ['adjective', 'nationality', 'person', 'noun', 'adjective', 'noun', 'adjective', 'adjective', 'plural noun'
-'noun', 'number', 'shapes', 'food', 'food', 'number']
+'noun', 'number', 'shape', 'food', 'food', 'number']
 
 # DIFFERENT PARTS OF SPEECH + COLOR ASSIGN
 def partsOfSpeech(input):
@@ -20,15 +20,28 @@ def partsOfSpeech(input):
         if items == "adjective":
             colorText = colored(input, 'red')
             return colorText
-        if items == "nationality":
+        elif items == "nationality":
             colorText = colored(input, 'green')
             return colorText
-        if items == "adjective":
+        elif items == "person":
             colorText = colored(input, 'yellow')
+            return colorText
+        elif items == "noun" | "plural noun":
+            colorText = colored(input, 'blue')
+            return colorText
+        elif items == "number":
+            colorText = colored(input, 'magenta')
+            return colorText
+        elif items == "shape":
+            colorText = colored(input, 'cyan')
+            return colorText
+        elif items == "food":
+            colorText = colored(input, 'white')
             return colorText
 
     
 # VALID TEXT CHECK
+# add for whitespace
 def textVerification(input):
     if input.isalpha():
         return True
@@ -43,9 +56,9 @@ def test():
         check = textVerification(textInput)
         if check == True:
             print(partsOfSpeech(textInput))
+            running += 1
         else:
             print("That input was invalid.")
-        running += 1
 
 test()
 
