@@ -4,14 +4,14 @@ from termcolor import colored, cprint
 '''
 Pizza:
 
-Pizza was invented by a [adjective] [nationality] chef named [person]. To make pizza, you need to take a lump
+Pizza was invented by a [adjective] [nationality] chef named [name]. To make pizza, you need to take a lump
 of [noun], and make a thin, round [adjective] [noun]. Then you [adverb] [verb] it with [adjective] sauce, [adjective] cheese,
 and fresh chopped [plural noun]. Next you have to bake it in a very hot [noun]. When it is done, cut it
 into [number] [shapes]. Some kids like [food] pizza the best, but my favorite is the [food] pizza. If I could, I would
 eat pizza [number] times a day!
 '''
 
-partOfSpeechArray = ['adjective', 'nationality', 'person', 'noun', 'adjective', 'noun', 'adverb', 'verb', 'adjective', 'adjective', 'plural noun',
+partOfSpeechArray = ['adjective', 'nationality', 'name', 'noun', 'adjective', 'noun', 'adverb', 'verb', 'adjective', 'adjective', 'plural noun',
 'noun', 'number', 'shape', 'food', 'food', 'number']
 
 inputArray = []
@@ -22,13 +22,13 @@ def partsOfSpeech(input, counter):
         if partOfSpeechArray[counter] == "adjective":
             colorText = colored(input, 'red')
             return colorText
-        elif partOfSpeechArray[counter] == "nationality" and "adverb":
+        elif partOfSpeechArray[counter] == "nationality" or "adverb":
             colorText = colored(input, 'green')
             return colorText
-        elif partOfSpeechArray[counter] == "person":
+        elif partOfSpeechArray[counter] == "name":
             colorText = colored(input, 'yellow')
             return colorText
-        elif partOfSpeechArray[counter] == "noun" and "plural noun":
+        elif partOfSpeechArray[counter] == "noun" or "plural noun":
             colorText = colored(input, 'blue')
             return colorText
         elif partOfSpeechArray[counter] == "verb":
