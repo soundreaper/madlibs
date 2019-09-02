@@ -17,30 +17,30 @@ partOfSpeechArray = ['adjective', 'nationality', 'person', 'noun', 'adjective', 
 inputArray = []
 
 # DIFFERENT PARTS OF SPEECH + COLOR ASSIGN
-def partsOfSpeech(input):
+def partsOfSpeech(input, counter):
     for items in partOfSpeechArray:
-        if items == "adjective":
+        if partOfSpeechArray[counter] == "adjective":
             colorText = colored(input, 'red')
             return colorText
-        elif items == "nationality" | "adverb":
+        elif partOfSpeechArray[counter] == "nationality" and "adverb":
             colorText = colored(input, 'green')
             return colorText
-        elif items == "person":
+        elif partOfSpeechArray[counter] == "person":
             colorText = colored(input, 'yellow')
             return colorText
-        elif items == "noun" | "plural noun":
+        elif partOfSpeechArray[counter] == "noun" and "plural noun":
             colorText = colored(input, 'blue')
             return colorText
-        elif items == "verb":
+        elif partOfSpeechArray[counter] == "verb":
             colorText = colored(input, 'grey')
             return colorText
-        elif items == "number":
+        elif partOfSpeechArray[counter] == "number":
             colorText = colored(input, 'magenta')
             return colorText
-        elif items == "shape":
+        elif partOfSpeechArray[counter] == "shape":
             colorText = colored(input, 'cyan')
             return colorText
-        elif items == "food":
+        elif partOfSpeechArray[counter] == "food":
             colorText = colored(input, 'white')
             return colorText
 
@@ -60,7 +60,7 @@ def test():
         textInput = input("Enter a " + partOfSpeechArray[running] + ": ")
         check = textVerification(textInput)
         if check == True:
-            inputArray.append(partsOfSpeech(textInput))
+            inputArray.append(partsOfSpeech(textInput, running))
             running += 1
         else:
             print("That input was invalid.\n")
